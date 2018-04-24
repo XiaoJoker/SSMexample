@@ -10,7 +10,7 @@
   </resultMap>
   
   <resultMap id="withDepetResultMap" type="com.zhang.bean.Employee">
-  <id column="emp_id" jdbcType="INTEGER" property="empId" />
+    <id column="emp_id" jdbcType="INTEGER" property="empId" />
     <result column="emp_name" jdbcType="VARCHAR" property="empName" />
     <result column="emp_gender" jdbcType="VARCHAR" property="empGender" />
     <result column="emp_email" jdbcType="VARCHAR" property="empEmail" />
@@ -19,7 +19,7 @@
     <association property="department" javaType="com.zhang.bean.Department">
     <!-- 和bean实体中属性一样 -->
     <id column="dept_id" property="deptId" />
-    <result column="dept_name" property="deptname"/>
+    <result column="dept_name" property="deptName"/>
     </association>
   </resultMap>
   
@@ -91,16 +91,16 @@
   </sql>
   
   
-<!--   List<Employee> selectByExamplewithDept(EmployeeExample example);
-    Employee selectByPrimaryKeywithDept(Integer empId); -->
+<!--   List<Employee> selectByExamplewithDept(EmployeeExample example);-->
+
    <select id="selectByExamplewithDept" resultMap="withDepetResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="WithDept_Column_List" />
-    from emp e
-    left join dept d on e.d_id=d.dept_id
+    FROM emp e
+    LEFT JOIN dept d on e.d_id=d.dept_id
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -108,12 +108,12 @@
       order by ${orderByClause}
     </if>
   </select> 
-  
+   <!--    Employee selectByPrimaryKeywithDept(Integer empId);  -->
   <select id="selectByPrimaryKeywithDept" resultMap="withDepetResultMap">
     select 
     <include refid="WithDept_Column_List" />
-     from emp e
-    left join dept d on e.d_id=d.dept_id
+     FROM emp e
+    LEFT JOIN dept d on e.d_id=d.dept_id
     where emp_id = #{empId,jdbcType=INTEGER}
   </select>
  

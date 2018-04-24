@@ -14,12 +14,12 @@
 		<package name="com.zhang.bean" />
 	</typeAliases>
 
-	<!-- <plugins>
+	<plugins>
 		<plugin interceptor="com.github.pagehelper.PageInterceptor">
-			使用下面的方式配置参数，后面会有所有的参数介绍，分页插件
+			<!-- 使用下面的方式配置参数，后面会有所有的参数介绍，分页插件 -->
 			<property name="param1" value="value1" />
-			分页参数合理化，防止错误的页码数
-			<property name="reasonable" value="true"/>
+			<!-- 分页参数合理化，防止错误的页码数 -->
+			<property name="reasonable" value="true" />
 		</plugin>
-	</plugins> -->
+	</plugins>
 </configuration>

@@ -18,6 +18,12 @@ public class Employee {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + ", empGender=" + empGender + ", empEmail="
+				+ empEmail + ", dId=" + dId + ", department=" + department + "]";
+	}
+
 	public Employee(Integer empId, String empName, String empGender, String empEmail, Integer dId) {
 		super();
 		this.empId = empId;
